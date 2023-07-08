@@ -39,12 +39,12 @@ public class FortuneTeller extends JPanel implements Runnable, MouseListener {
         int mouseY = e.getY();
         
         // 5. Print the mouseX variable
-        System.out.print(mouseX + " "+ mouseY);
+        System.out.println(mouseX + " "+ mouseY);
         // 6. Add the mouseY variable to the previous line so that it prints out too (no new line)
         
         // 7. Adjust your secret location co-ordinates here:
-        int secretLocationX = 100;
-        int secretLocationY = 100;
+        int secretLocationX = 250;
+        int secretLocationY = 250;
         
         // If the mouse co-ordinates and secret location are close, we'll let them ask a question.
         if (areClose(mouseX, secretLocationX) && areClose(mouseY, secretLocationY)) {
