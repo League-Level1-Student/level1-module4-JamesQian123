@@ -64,17 +64,23 @@ public class Calculator implements MouseListener {
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
 		if(e .equals(button)) {
-			add(Integer.parseInt(text.getText()), Integer.parseInt(text1.getText()));
+		int answer = add(Integer.parseInt(text.getText()), Integer.parseInt(text1.getText()));
+		
+		label.setText("answer");
+			
 		}
 		else if(e .equals(button1)) {
-			subtract(Integer.parseInt(text.getText()), Integer.parseInt(text1.getText()));
+		int answer1 = 	subtract(Integer.parseInt(text.getText()), Integer.parseInt(text1.getText()));
+		
+			//label.setText();
 		}
 		else if(e .equals(button2)) {
-			multiply(Integer.parseInt(text.getText()), Integer.parseInt(text1.getText()));
+			int answer2 = multiply(Integer.parseInt(text.getText()), Integer.parseInt(text1.getText()));
+			label.setText(answer2 +"");
 		}
 		else if(e .equals(button3)) {
-			divide(Integer.parseInt(text.getText()), Integer.parseInt(text1.getText()));
-			label.setText(null);
+			int answer3 = divide(Integer.parseInt(text.getText()), Integer.parseInt(text1.getText()));
+			label.setText(answer3 + "");
 		}
 	}
 	@Override
