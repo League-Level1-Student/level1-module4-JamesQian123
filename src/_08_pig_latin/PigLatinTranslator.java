@@ -1,6 +1,98 @@
 package _08_pig_latin;
 
-public class PigLatinTranslator {
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+import game_tools.Sound;
+
+public class PigLatinTranslator implements MouseListener {
+	JFrame frame = new JFrame();
+	JPanel panel = new JPanel();
+	JButton button = new JButton();
+	JButton button1 = new JButton();
+	JButton button2 = new JButton();
+	JTextField text = new JTextField();
+	JTextField text2 = new JTextField();
+	
+	public void run() {
+		frame.setVisible(true);
+		frame.setSize(700,500);
+		frame.add(panel);
+		panel.add(text);
+		text.setColumns(10);
+		panel.add(button);
+		button.setText(">>");
+		panel.add(button1);
+		button1.setText("<<");
+		panel.add(text2);
+		text2.setColumns(10);
+		panel.add(button2);
+		button2.setText("speak");
+		button.addMouseListener(this);
+		button1.addMouseListener(this);
+		button2.addMouseListener(this);
+		}
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		if(e.getSource()==button) {
+			String piglatin = translateEnglishToPigLatin(text.getText());
+			text2.setText(piglatin);
+		}
+		else if(e.getSource() == button1) {
+			String english = translatePigLatinToEnglish(text2.getText());
+			text.setText(english);
+		}
+		else if(e.getSource() == button2) {
+			Sound.speak(text2.getText());
+		}
+		
+	}
+
+
+
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+	
+	
     /**
      * Method to translate a english to pig latin.
      * 
@@ -120,4 +212,9 @@ public class PigLatinTranslator {
                 return i;
         return 0;
     }
+
+
+
+
+	
 }

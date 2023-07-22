@@ -1,6 +1,10 @@
 package _07_tv_show_episode_info;
 
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -11,20 +15,61 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class TVShowEpisodeInfoDisplayer {
+public class TVShowEpisodeInfoDisplayer implements MouseListener {
 	JFrame frame = new JFrame();
+	JPanel panel = new JPanel();
 	JButton button = new JButton();
 	JTextField field = new JTextField();
 	public TVShowEpisodeInfoDisplayer() {
+		frame.setVisible(true);
+		frame.setSize(800,800);
+		frame.add(panel);
+		panel.add(button);
+		panel.add(field);
+		field.setColumns(10);
+		button.setText("Submit");
+		button.addMouseListener(this);
+		
+		
+	}
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
+		if(e.getSource()==(button)) {
+		 String data = getShowEpisodeData(field.getText());
+		 JOptionPane.showMessageDialog(null, data);
+		}
+		
 		
 		
 	}
 
-	
-	
-	
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
 
 /////////////////////////DO NOT MODIFY ANY CODE BELOW THIS LINE//////////////////////////////////////////
 	
@@ -80,4 +125,16 @@ public class TVShowEpisodeInfoDisplayer {
 		
 		return res;
 	}
+
+
+
+
+
+	
+
+
+
+
+
+	
 }
