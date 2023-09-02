@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.Random;
 
 import javax.swing.GrayFilter;
 import javax.swing.JFrame;
@@ -38,8 +39,20 @@ public class LightsOut implements MouseListener {
 			light.setBackground(Color.LIGHT_GRAY);
 			light.setOpaque(true);
 			light.addMouseListener(this);
+			Random r = new Random();
+			int rand = r.nextInt(2);
+				if(rand == 1) {
+					light.setBackground(Color.LIGHT_GRAY);
+			}
+				else if(rand == 0) {
+					light.setBackground(Color.WHITE);
+				}
 			gamePanel.add(light);
-		}
+			}
+		
+			
+		
+		
 			//3. Use setText() to add a position number to each light (0-24).
 		
 			//4. Set the background of each light to LIGHT_GRAY
@@ -48,7 +61,7 @@ public class LightsOut implements MouseListener {
 
 			//5. Add a mouseListener to each light
 		
-		
+	
 		//6. Add your panel to a frame
 		frame.add(gamePanel);
 		//7. Set the size of the frame
@@ -81,7 +94,7 @@ public class LightsOut implements MouseListener {
 		}
 		/** PART 3: RANDOMIZE YOUR BOARD **/
 		// Now that your game works can you make the game start with some lights on?
-
+		
 	}
 
 	void makeMove(int pos) {
